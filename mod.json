@@ -8,7 +8,7 @@
 	},
 	"id": "timestepyt.disableallstartpos",
 	"name": "Disable all StartPos",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "TimeStepYT",
 	"description": "Disable instead of delete",
 	"tags": ["enhancement", "editor", "offline", "utility"],
