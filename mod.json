@@ -1,0 +1,26 @@
+{
+	"geode": "4.3.1",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "timestepyt.disableallstartpos",
+	"name": "Disable all StartPos",
+	"version": "v1.0.0",
+	"developer": "TimeStepYT",
+	"description": "Disable instead of delete",
+	"tags": ["enhancement", "editor", "offline", "utility"],
+	"dependencies": {
+		"geode.node-ids": {
+			"importance": "required",
+			"version": ">=v1.20.1"
+		}
+	},
+	"resources": {
+		"sprites": [
+			"resources/disableAllIcon.png"
+		]
+	}
+}
