@@ -6,7 +6,7 @@ using namespace geode::prelude;
 
 class $modify(MyEditorUI, EditorUI) {
 	// Replacing the sprite of the delete all StartPos button
-	bool init(LevelEditorLayer * editorLayer) {
+	bool init(LevelEditorLayer* editorLayer) {
 		if (!EditorUI::init(editorLayer))
 			return false;
 
@@ -42,7 +42,7 @@ class $modify(MyEditorUI, EditorUI) {
 		return true;
 	}
 
-	void onDeleteStartPos(CCObject * sender) {
+	void onDeleteStartPos(CCObject* sender) {
 		auto& editorLayer = this->m_editorLayer;
 		CCArrayExt<GameObject*> objects = editorLayer->m_objects;
 
