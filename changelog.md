@@ -1,5 +1,8 @@
 # Disable all StartPos changelog
 
+## v1.0.3
+- Updated Geode version to 5.0.0 and GD 2.2081
+
 ## v1.0.2
 - Bumped Geode version to 4.6.0 for iOS 26 to work
 
