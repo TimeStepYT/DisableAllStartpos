@@ -13,10 +13,7 @@
 	"description": "Disable instead of delete",
 	"tags": ["enhancement", "editor", "offline", "utility"],
 	"dependencies": {
-		"geode.node-ids": {
-			"importance": "required",
-			"version": ">=v1.20.1"
-		}
+		"geode.node-ids": ">=v1.20.1"
 	},
 	"resources": {
 		"sprites": [
