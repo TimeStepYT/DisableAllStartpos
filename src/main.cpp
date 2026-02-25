@@ -13,16 +13,21 @@ class $modify(MyEditorUI, EditorUI) {
 		NodeIDs::provideFor(this);
 
 		auto deleteCategoryMenu = this->getChildByID("delete-category-menu");
+
+		if (!deleteCategoryMenu)
+			return true;
+
 		auto deleteButtonMenu = deleteCategoryMenu->getChildByID("delete-button-menu");
 		auto deleteStartPosButton = deleteButtonMenu->getChildByID("delete-startpos-button");
 		auto buttonSprite = deleteStartPosButton->getChildByType<ButtonSprite>(0);
 
 		// Getting the sprite that gets replaced by the new one
-		CCArrayExt<CCSprite*> buttonSpriteArray = buttonSprite->getChildren();
-		CCSprite* deleteAllSprite = nullptr;
-		for (auto sprite : buttonSpriteArray) {
-			if (sprite->getChildrenCount() == 2) {
-				deleteAllSprite = sprite;
+		CCNode* deleteAllSprite = nullptr;
+
+		auto children = buttonSprite->getChildrenExt();
+		for (auto* child : children) {
+			if (child->getChildrenCount() > 0) {
+				deleteAllSprite = child;
 				break;
 			}
 		}
@@ -31,7 +36,10 @@ class $modify(MyEditorUI, EditorUI) {
 			return true;
 
 		// Removing the old sprite
-		auto label = deleteAllSprite->getChildByType<CCSprite>(0);
+		auto label = getChildBySpriteFrameName(deleteAllSprite, "GJ_deleteAllIcon_001.png");
+		if (!label)
+			return true;
+
 		label->removeFromParent();
 
 		// Adding the new sprite
@@ -46,9 +54,9 @@ class $modify(MyEditorUI, EditorUI) {
 		auto& editorLayer = this->m_editorLayer;
 		CCArrayExt<GameObject*> objects = editorLayer->m_objects;
 
-		if (!editorLayer) return; // I have no idea if this helps with anything
+		if (!editorLayer) return; // I have no idea if this helps with anything, it probably doesn't
 
-		for (auto object : objects) {
+		for (auto* object : objects) {
 			if (object->m_objectID != 31) continue; // Continue if the object is not a StartPos
 
 			auto startPosObject = static_cast<StartPosObject*>(object);
